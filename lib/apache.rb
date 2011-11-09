@@ -14,7 +14,7 @@ namespace :apache do
   desc "Add an Apache vhost configuration file"
   task :add_apache_vhost, :roles => [:web] do
     transaction do
-      management.apache.upload_vhost_conf_file
+      apache.upload_vhost_conf_file
       sudo "cp #{shared_path}/httpd.conf #{apache_vhost_available_path}"
       run "rm -f #{shared_path}/httpd.conf"    
     end
