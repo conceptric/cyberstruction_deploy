@@ -10,8 +10,12 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md"
   ]
+  s.require_paths = ["lib"]
   s.files = [
     "lib/cyberstruction_deploy.rb"
   ]
-  s.require_paths = ["lib"]
+  s.test_files = [
+  ]
+  s.add_dependency "capistrano"
+  s.add_dependency "capistrano-ext"
 end
