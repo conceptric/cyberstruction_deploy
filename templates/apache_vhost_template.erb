@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerName  <%=primary_app_domain_name%>
+  <% vhost_aliases.each do |a| %>
+    ServerAlias <%= "#{a}" %>
+  <% end %>
+  DocumentRoot <%= "#{current_path}/public" %>	
+	UseCanonicalName Off
+  <Directory "<%= "#{current_path}" %>/public/">
+     Options Indexes MultiViews SymLinksIfOwnerMatch
+     AllowOverride All Options FileInfo
+     Order allow,deny
+     Allow from all
+  </Directory>
+</VirtualHost>

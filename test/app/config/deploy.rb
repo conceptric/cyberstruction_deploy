@@ -1,4 +1,5 @@
-set :application, "set your application name here"
+set :application, "GemTest"
+set :primary_app_domain_name, "#{application}.com"
 set :repository,  "set your repository location here"
 
 set :scm, :subversion
