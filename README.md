@@ -1,6 +1,8 @@
 # Cyberstruction: Basic Web Application Deployment and Management
 
-Recipes for Capistrano to deploy self-contained web applications without database backing to an Ubuntu server. Recipes include Apache configuration and management.
+Recipes for Capistrano to deploy self-contained web applications without database backing to an Ubuntu server. Recipes include Apache configuration and management.  
+
+This is a work in progress, so there are no guarantees!
 
 ## Note on Patches/Pull Requests
  
