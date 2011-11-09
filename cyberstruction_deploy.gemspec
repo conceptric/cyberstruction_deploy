@@ -13,7 +13,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.files = [
     "lib/cyberstruction_deploy.rb",
-    "lib/variables.rb"
+    "lib/variables.rb",
+    "lib/apache.rb"
   ]
   s.test_files = [
   ]
