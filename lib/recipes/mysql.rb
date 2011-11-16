@@ -2,7 +2,7 @@ _cset(:mysql_user) { "#{application}" }
 set(:mysql_passwd) { Capistrano::CLI.password_prompt("Enter MySQL User Password: ") }
 
 namespace :mysql do
-
+  
   desc "Create a new database for the application"
   task :create_database, :roles => [:db] do          
     target = "#{shared_path}/config/database_setup.sql"
@@ -21,8 +21,13 @@ namespace :mysql do
     task :config, :roles => [:db] do      
       buffer = build_template("mysql_rails_template.erb")
       put buffer, "#{shared_path}/config/database.yml", :mode => 0644     
-    end
+    end 
     
+    desc "Link the mysql configuration file"
+    task :link_config, :roles => [:app] do
+      sudo "ln -nfs #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    end
+                                    
   end
   
 end
