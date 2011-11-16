@@ -1,11 +1,8 @@
-Capistrano::Configuration.instance(:must_exist).load do
+configuration = Capistrano::Configuration.respond_to?(:instance) ?
+  Capistrano::Configuration.instance(:must_exist) :
+  Capistrano.configuration(:must_exist)
 
-# Check whether the variable has been set
-def _cset(name, *args, &block)
-  unless exists?(name)
-    set(name, *args, &block)
-  end
-end
+configuration.load do
 
 # =========================================================================
 # These variables MUST be set in the client capfiles. If they are not set,

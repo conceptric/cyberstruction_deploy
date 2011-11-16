@@ -1,5 +1,9 @@
-Capistrano::Configuration.instance(:must_exist).load do
+configuration = Capistrano::Configuration.respond_to?(:instance) ?
+  Capistrano::Configuration.instance(:must_exist) :
+  Capistrano.configuration(:must_exist)
 
+configuration.load do
+  
 # Recipes for controlling web server configuration and operation on Ubuntu
 namespace :apache do
 
