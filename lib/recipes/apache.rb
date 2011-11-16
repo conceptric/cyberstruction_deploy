@@ -15,9 +15,7 @@ namespace :apache do
 
   # Build the Apache configuration file for the application from a template
   task :upload_vhost_conf_file, :roles => [:web] do 
-    vhost_aliases = apache_vhost_aliases            
-    template = File.read("#{template_root}/apache_vhost_template.erb")
-    buffer = ERB.new(template).result(binding)
+    buffer = build_template("apache_vhost_template.erb")
     put buffer, "#{shared_path}/httpd.conf", :mode => 0644
   end
 

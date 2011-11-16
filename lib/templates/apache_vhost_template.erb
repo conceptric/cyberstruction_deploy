@@ -1,6 +1,6 @@
 <VirtualHost *:80>
 	ServerName  <%=primary_app_domain_name%>
-  <% vhost_aliases.each do |a| %>
+  <% apache_vhost_aliases.each do |a| %>
     ServerAlias <%= "#{a}" %>
   <% end %>
   DocumentRoot <%= "#{current_path}/public" %>	
