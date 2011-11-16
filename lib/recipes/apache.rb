@@ -1,9 +1,15 @@
-configuration = Capistrano::Configuration.respond_to?(:instance) ?
-  Capistrano::Configuration.instance(:must_exist) :
-  Capistrano.configuration(:must_exist)
-
-configuration.load do
-  
+# Default apache settings
+_cset(:apachectl_command) { "/usr/sbin/apache2ctl" }                   
+_cset(:apache_vhost_available_path) {
+   "/etc/apache2/sites-available/#{application}" 
+   }
+_cset(:apache_vhost_enabled_path) { 
+  "/etc/apache2/sites-enabled/#{application}" 
+  }
+_cset(:apache_vhost_aliases) { 
+  ["www.#{primary_app_domain_name}"] 
+  }
+      
 # Recipes for controlling web server configuration and operation on Ubuntu
 namespace :apache do
 
@@ -64,7 +70,5 @@ namespace :apache do
   task :stop, :roles => [:web] do
     sudo "#{apachectl_command} graceful-stop"
   end
-
-end
 
 end

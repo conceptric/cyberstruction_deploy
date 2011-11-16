@@ -5,5 +5,9 @@ def _cset(name, *args, &block)
   end
 end
 
-require "#{File.dirname(__FILE__)}/variables"
-require "#{File.dirname(__FILE__)}/apache"
+Dir[File.join(File.dirname(__FILE__), 'recipes', '*.rb')].each do |recipe| 
+  configuration = Capistrano::Configuration.respond_to?(:instance) ?
+    Capistrano::Configuration.instance(:must_exist) :
+    Capistrano.configuration(:must_exist)
+  configuration.load recipe
+end
