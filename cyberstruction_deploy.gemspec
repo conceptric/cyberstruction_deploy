@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{cyberstruction_deploy}
-  s.version = "0.1.1"
+  s.version = "0.2"
   s.date = %q{2012-11-16}
   s.authors = ["James Whinfrey"]
   s.email = %q{james@conceptric.co.uk}
@@ -13,8 +13,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.files = [
     "lib/cyberstruction_deploy.rb",
-    "lib/variables.rb",
-    "lib/apache.rb"
+    "lib/recipes/variables.rb",
+    "lib/recipes/apache.rb",
+    "lib/recipes/mysql.rb"
   ]
   s.test_files = [
   ]
