@@ -15,6 +15,19 @@ namespace :mysql do
     end 
   end
 
+  desc "Download a backup of the production application database"
+  task :backup_database, :roles => [:db] do      
+    datestring = Time.now.strftime("%d%m%Y")    
+    target = "#{shared_path}/config/#{application}_dbbackup_#{datestring}.sql"
+    transaction do
+      db_root_passwd = Capistrano::CLI.password_prompt("Enter the MySQL root password : ")
+      sudo "mysqldump -uroot -p#{db_root_passwd} #{application}_production > #{target}"
+      system "scp #{user}@#{servername}:#{target} ./backup/"
+      sudo "rm #{target}"
+    end 
+  end
+
+
   namespace :rails do
      
     desc "Add a mysql yaml configuration file for production"
