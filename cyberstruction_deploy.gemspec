@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = %q{cyberstruction_deploy}
-  s.version = "0.2.1"
-  s.date = %q{2012-11-16}
+  s.version = "0.3"
+  s.date = %q{2013-09-06}
   s.authors = ["James Whinfrey"]
   s.email = %q{james@conceptric.co.uk}
   s.summary = %q{cyberstruction_deploy is a set of capistrano tasks for basic deployment to a cyberstruction server}  
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   ]
   s.test_files = [
   ]
+  s.add_dependency "rake"
   s.add_dependency "capistrano"
   s.add_dependency "capistrano-ext"
 end
