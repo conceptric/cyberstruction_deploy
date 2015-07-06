@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{cyberstruction_deploy}
-  s.version = "0.4.0"
+  s.version = "0.4.1"
   s.date = %q{2015-07-06}
   s.authors = ["James Whinfrey"]
   s.email = %q{james@conceptric.co.uk}
