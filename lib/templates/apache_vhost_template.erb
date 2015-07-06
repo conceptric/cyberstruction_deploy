@@ -8,7 +8,6 @@
   <Directory "<%= "#{current_path}" %>/public/">
      Options Indexes MultiViews SymLinksIfOwnerMatch
      AllowOverride All Options FileInfo
-     Order allow,deny
-     Allow from all
+     Require all granted
   </Directory>
 </VirtualHost>
