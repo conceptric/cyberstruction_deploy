@@ -1,10 +1,10 @@
 # Default apache settings
 _cset(:apachectl_command) { "/usr/sbin/apache2ctl" }                   
 _cset(:apache_vhost_available_path) {
-   "/etc/apache2/sites-available/#{application}" 
+   "/etc/apache2/sites-available/#{application}.conf" 
    }
 _cset(:apache_vhost_enabled_path) { 
-  "/etc/apache2/sites-enabled/#{application}" 
+  "/etc/apache2/sites-enabled/#{application}.conf" 
   }
 _cset(:apache_vhost_aliases) { 
   ["www.#{primary_app_domain_name}"] 
